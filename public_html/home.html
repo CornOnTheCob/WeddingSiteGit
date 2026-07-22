@@ -1,0 +1,576 @@
+<title>Tyler Cobb & Markela Tsagris' Wedding</title>
+<style>
+  :root {
+    --ivory: #f7f3ec;
+    --ivory-dim: #efe8db;
+    --plum: #3b2436;
+    --plum-soft: #5a3d52;
+    --sage: #7c8b6f;
+    --sage-dim: #aab49e;
+    --blush: #cf7f6d;
+    --ink: #2a1b26;
+    --hairline: rgba(59, 36, 54, 0.16);
+    --card-bg: #ffffff;
+    --shadow: 0 1px 2px rgba(59, 36, 54, 0.06), 0 8px 24px rgba(59, 36, 54, 0.08);
+
+    --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  :root[data-theme="dark"] {
+    --ivory: #241823;
+    --ivory-dim: #1b1219;
+    --plum: #f3e9ee;
+    --plum-soft: #d9c3d3;
+    --sage: #9db08c;
+    --sage-dim: #5f6c53;
+    --blush: #e4a08d;
+    --ink: #f3e9ee;
+    --hairline: rgba(243, 233, 238, 0.14);
+    --card-bg: #2e1f2d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ivory: #241823;
+      --ivory-dim: #1b1219;
+      --plum: #f3e9ee;
+      --plum-soft: #d9c3d3;
+      --sage: #9db08c;
+      --sage-dim: #5f6c53;
+      --blush: #e4a08d;
+      --ink: #f3e9ee;
+      --hairline: rgba(243, 233, 238, 0.14);
+      --card-bg: #2e1f2d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  a { color: var(--blush); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    padding: 108px 28px 88px;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in srgb, var(--sage) 16%, transparent), transparent 70%),
+      var(--ivory);
+  }
+
+  .hero-sprig {
+    position: absolute;
+    color: var(--sage-dim);
+    opacity: 0.55;
+    width: 130px;
+    height: auto;
+  }
+  .hero-sprig.left { top: 24px; left: -18px; transform: rotate(-8deg); }
+  .hero-sprig.right { top: 24px; right: -18px; transform: scaleX(-1) rotate(-8deg); }
+
+  .monogram {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.6rem, 8vw, 3.6rem);
+    color: var(--sage);
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 80ms forwards;
+  }
+
+  .hero-names {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.8rem, 9vw, 5rem);
+    color: var(--plum);
+    margin: 14px 0 6px;
+    text-wrap: balance;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 220ms forwards;
+  }
+
+  .hero-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--plum-soft);
+    opacity: 0;
+    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 380ms forwards;
+  }
+
+  .hero-rule {
+    width: 56px;
+    height: 1px;
+    background: var(--blush);
+    margin: 26px auto 0;
+    opacity: 0;
+    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 500ms forwards;
+  }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .monogram, .hero-names, .hero-tagline, .hero-rule, .reveal {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: 72px 0; }
+  section.tint { background: var(--ivory-dim); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+
+  h2.section-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--plum);
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+
+  .section-lede {
+    color: var(--plum-soft);
+    max-width: 46ch;
+    margin: 0 0 40px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Details cards ---------- */
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+  }
+
+  .detail-card {
+    background: var(--card-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 26px 22px;
+    box-shadow: var(--shadow);
+  }
+
+  .detail-card .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .detail-card .value {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+
+  .detail-card .value.tbd {
+    font-style: italic;
+    color: var(--plum-soft);
+    opacity: 0.85;
+  }
+
+  .detail-card .sub {
+    font-size: 0.88rem;
+    color: var(--plum-soft);
+  }
+
+  /* ---------- Story ---------- */
+
+  .story-body {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--plum);
+    max-width: 58ch;
+  }
+
+  .story-body .tbd {
+    font-style: italic;
+    color: var(--plum-soft);
+  }
+
+  /* ---------- RSVP ---------- */
+
+  .rsvp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 36px;
+    box-shadow: var(--shadow);
+  }
+
+  .field { margin-bottom: 20px; }
+
+  .field label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .field input[type="text"],
+  .field input[type="number"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    color: var(--ink);
+    background: var(--ivory);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 11px 12px;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    outline: 2px solid var(--blush);
+    outline-offset: 1px;
+  }
+
+  .radio-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .radio-pill {
+    position: relative;
+  }
+  .radio-pill input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+  }
+  .radio-pill span {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--plum);
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .radio-pill input:checked + span {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: var(--ivory);
+  }
+  .radio-pill input:focus-visible + span {
+    outline: 2px solid var(--blush);
+    outline-offset: 2px;
+  }
+
+  .rsvp-submit {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    color: var(--ivory);
+    background: var(--blush);
+    border: none;
+    border-radius: 999px;
+    padding: 13px 30px;
+    cursor: pointer;
+    transition: transform 150ms ease, background 150ms ease;
+  }
+  .rsvp-submit:hover { background: color-mix(in srgb, var(--blush) 85%, black); }
+  .rsvp-submit:active { transform: scale(0.98); }
+  .rsvp-submit:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+  .rsvp-note {
+    font-size: 0.82rem;
+    color: var(--plum-soft);
+    margin-top: 16px;
+  }
+
+  .rsvp-confirm {
+    display: none;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--plum);
+    text-align: center;
+    padding: 20px 0;
+  }
+  .rsvp-confirm.show { display: block; }
+
+  /* ---------- Gallery & registry ---------- */
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .gallery-slot {
+    aspect-ratio: 4 / 5;
+    border: 1px dashed var(--hairline);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    color: var(--sage-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .gallery-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .registry-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .registry-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 16px 20px;
+    color: var(--plum-soft);
+    font-style: italic;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    text-align: center;
+    padding: 56px 28px 64px;
+  }
+
+  footer .monogram-small {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--sage);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  footer .footer-note {
+    font-size: 0.82rem;
+    color: var(--plum-soft);
+  }
+</style>
+
+<div class="hero">
+  <svg class="hero-sprig left" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M50 140 C 48 100, 52 70, 50 20" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M50 100 C 40 92, 28 90, 18 78" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 100 C 60 92, 72 90, 82 78" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 65 C 42 58, 32 56, 24 46" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 65 C 58 58, 68 56, 76 46" stroke="currentColor" stroke-width="1.2"/>
+    <ellipse cx="18" cy="78" rx="7" ry="4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="82" cy="78" rx="7" ry="4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="24" cy="46" rx="6" ry="3.4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="76" cy="46" rx="6" ry="3.4" fill="currentColor" opacity="0.5"/>
+  </svg>
+  <svg class="hero-sprig right" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M50 140 C 48 100, 52 70, 50 20" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M50 100 C 40 92, 28 90, 18 78" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 100 C 60 92, 72 90, 82 78" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 65 C 42 58, 32 56, 24 46" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M50 65 C 58 58, 68 56, 76 46" stroke="currentColor" stroke-width="1.2"/>
+    <ellipse cx="18" cy="78" rx="7" ry="4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="82" cy="78" rx="7" ry="4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="24" cy="46" rx="6" ry="3.4" fill="currentColor" opacity="0.5"/>
+    <ellipse cx="76" cy="46" rx="6" ry="3.4" fill="currentColor" opacity="0.5"/>
+  </svg>
+
+  <div class="monogram">T &amp; M</div>
+  <h1 class="hero-names">Tyler &amp; Markela</h1>
+  <p class="hero-tagline">Tyler and Markela's Wedding Website</p>
+  <div class="hero-rule"></div>
+</div>
+
+<section id="details">
+  <div class="wrap">
+    <p class="eyebrow reveal">When &amp; Where</p>
+    <h2 class="section-title reveal">Event Details</h2>
+    <p class="section-lede reveal">We can't wait to celebrate with you. Final details will be posted here as soon as they're set.</p>
+    <div class="details-grid reveal">
+      <div class="detail-card">
+        <div class="label">Date &amp; Time</div>
+        <div class="value tbd">To be announced</div>
+        <div class="sub">Check back for the save-the-date</div>
+      </div>
+      <div class="detail-card">
+        <div class="label">Ceremony</div>
+        <div class="value tbd">To be announced</div>
+        <div class="sub">Venue &amp; address coming soon</div>
+      </div>
+      <div class="detail-card">
+        <div class="label">Reception</div>
+        <div class="value tbd">To be announced</div>
+        <div class="sub">Venue &amp; address coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="story">
+  <div class="wrap">
+    <p class="eyebrow reveal">Our Story</p>
+    <h2 class="section-title reveal">How It Began</h2>
+    <p class="story-body reveal">
+      <span class="tbd">Tyler and Markela's story is coming soon — check back soon to read about how they met and got engaged.</span>
+    </p>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <p class="eyebrow reveal">Kindly Respond</p>
+    <h2 class="section-title reveal">RSVP</h2>
+    <p class="section-lede reveal">RSVP deadline: <em class="tbd" style="font-style: italic;">to be announced</em>.</p>
+
+    <form class="rsvp-card reveal" id="rsvp-form">
+      <div class="field">
+        <label for="rsvp-name">Full name</label>
+        <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="Your name" />
+      </div>
+
+      <div class="field">
+        <label>Will you attend?</label>
+        <div class="radio-row">
+          <label class="radio-pill">
+            <input type="radio" name="attending" value="yes" required />
+            <span>Joyfully accept</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="attending" value="no" required />
+            <span>Regretfully decline</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="rsvp-guests">Number attending (including you)</label>
+        <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" />
+      </div>
+
+      <div class="field">
+        <label for="rsvp-message">Message for the couple (optional)</label>
+        <textarea id="rsvp-message" name="message" rows="3" placeholder="Leave a note for Tyler and Markela"></textarea>
+      </div>
+
+      <button type="submit" class="rsvp-submit">Send RSVP</button>
+      <p class="rsvp-note">This form isn't connected to a mailbox yet — once it is, responses will reach Tyler and Markela directly.</p>
+    </form>
+
+    <p class="rsvp-confirm" id="rsvp-confirm">Thank you — your response has been noted.</p>
+  </div>
+</section>
+
+<section class="tint" id="gallery">
+  <div class="wrap">
+    <p class="eyebrow reveal">A Few Favorites</p>
+    <h2 class="section-title reveal">Photos</h2>
+    <p class="section-lede reveal">A few of our favorite moments from the proposal.</p>
+    <div class="gallery-grid reveal">
+      <div class="gallery-photo"><img src="img/gallery/proposal.jpg" alt="Tyler on one knee proposing to Markela at sunset" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="img/gallery/together.jpg" alt="Tyler and Markela smiling together after the proposal" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="img/gallery/ring.jpg" alt="Close-up of Markela's engagement ring at sunset" loading="lazy" /></div>
+      <div class="gallery-slot">More photos coming soon</div>
+    </div>
+
+    <p class="eyebrow reveal">With Gratitude</p>
+    <h2 class="section-title reveal">Registry</h2>
+    <ul class="registry-list reveal">
+      <li>Registry links to be announced</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="monogram-small">T &amp; M</div>
+  <p class="footer-note">We can't wait to celebrate with you.</p>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('rsvp-form');
+    var confirmMsg = document.getElementById('rsvp-confirm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        confirmMsg.classList.add('show');
+      });
+    }
+
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && reveals.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('in-view'); });
+    }
+  })();
+</script>
